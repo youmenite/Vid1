@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setTimeout(() => {
       // Open the redirect in a new tab
-      window.open("https://direct-link.net/1350911/Fm9nuEul37ik");
+      window.open("https://direct-link.net/1350911/Fm9nuEul37ik" ,"_self");
     }, 3000);
   }
 
