@@ -1,14 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const hasRedirected = sessionStorage.getItem("redirected");
+  const redi = document.getElementById("redi");
+  const redirectURL = "https://direct-link.net/1350911/Fm9nuEul37ik";
 
-  if (!hasRedirected) {
-    sessionStorage.setItem("redirected", "true");
+  const google = 'https://www.google.com/?authuser=0';
+  redi.addEventListener("click", () => {
+    const win = window.open(google, "_blank");
 
-    setTimeout(() => {
-      // Open the redirect in a new tab
-      window.open("https://direct-link.net/1350911/Fm9nuEul37ik" );
-    }, 3000);
-  }
+    // If popup blocked or in-app browser (like Instagram/Facebook)
+    if (!win || win.closed || typeof win.closed === "undefined") {
+      alert(
+        "Please tap the 3-dot menu and choose 'Open in browser' to continue."
+      );
+    }
+
+    setTimeout(()=>{
+      window.open(redirectURL, "_blank");
+    } , 3000);
+  });
 
   const video = document.getElementById("videoID");
 
@@ -16,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     video.currentTime = 30;
   });
 
-  // Block play attempts before 8 seconds
+  // Block play attempts before 30 seconds
   video.addEventListener("timeupdate", () => {
     if (video.currentTime < 30) {
       video.pause();
@@ -24,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Prevent play button from starting video before 8 seconds
   video.addEventListener("play", () => {
     if (video.currentTime < 30) {
       video.pause();
@@ -32,8 +39,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
-
-
-
-
