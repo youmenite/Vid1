@@ -13,22 +13,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const video = document.getElementById("videoID");
 
   video.addEventListener("loadedmetadata", () => {
-    video.currentTime = 8;
+    video.currentTime = 30;
   });
 
   // Block play attempts before 8 seconds
   video.addEventListener("timeupdate", () => {
-    if (video.currentTime < 8) {
+    if (video.currentTime < 30) {
       video.pause();
-      video.currentTime = 8;
+      video.currentTime = 30;
     }
   });
 
   // Prevent play button from starting video before 8 seconds
   video.addEventListener("play", () => {
-    if (video.currentTime < 8) {
+    if (video.currentTime < 30) {
       video.pause();
-      video.currentTime = 8;
+      video.currentTime = 30;
     }
   });
 });
